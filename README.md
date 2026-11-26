@@ -1,19 +1,16 @@
-# 🛡️ Práctica de Ciberseguridad: Lógica de Detección en Python
+def analizar_url(url):
+    # Palabras clave comúnmente usadas en ataques de phishing
+    palabras_sospechosas = ["login-verify", "update-account", "free-gift", "secure-bank", "confirmar-datos"]
 
-Este repositorio contiene la implementación práctica de un algoritmo básico de cibers
+    url_lower = url.lower()
 
----
+    amenazas_encontradas = [palabra for palabra in palabras_sospechosas if palabra in url_lower]
 
-## 📌 Objetivos de la Práctica
-* Comprender la diferencia conceptual y operativa entre las amenazas digitales y sus
-* Analizar cadenas de texto y aplicar lógica condicional en Python para la toma de d
-* Documentar y versionar el código utilizando Git y GitHub.
+    if amenazas_encontradas:
+        print(f" [ALERTA PHISHING] La URL contiene elementos sospechosos: {amenazas_encontradas}")
+    else:
+        print(" [SEGURO] La URL no presenta patrones obvios de phishing.")
 
----
-
-## 📁 Contenido del Repositorio
-
-Dependiendo del ejercicio, este repositorio incluye uno de los siguientes módulos:
-
-1. **`anti_phishing.py`**: Simulador de análisis de URLs mediante reglas heurísticas para la dete
-2. **`filtro_antispam.py`**: Filtro de mensajes basado en listas negras (*blacklists*) de
+# Ejemplo de prueba con los estudiantes
+analizar_url("https://mi-banco-seguro.com/login-verify?user=123")
+analizar_url("https://www.google.com")
